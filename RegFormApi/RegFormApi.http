@@ -1,0 +1,6 @@
+@RegFormApi_HostAddress = http://localhost:5232
+
+GET {{RegFormApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
