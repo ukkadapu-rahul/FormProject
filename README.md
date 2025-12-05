@@ -1,3 +1,8 @@
+## Demo Video
+[![Demo Video](thumbnail.png)]()
+
+
+
 ## to run:
 ### open the FormProject folder in vs code
 ### there will be two folders; one each for frontend and backend
