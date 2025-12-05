@@ -1,0 +1,88 @@
+<div class="register-form">
+  <h2>New User Registration</h2>
+
+  <form (ngSubmit)="onSubmit()" #regForm="ngForm">
+    <div>
+      <label for="firstName">First Name:</label>
+      <input
+        id="firstName"
+        name="firstName"
+        [(ngModel)]="user.firstName"
+        required
+      />
+    </div>
+
+    <div>
+      <label for="lastName">Last Name:</label>
+      <input
+        id="lastName"
+        name="lastName"
+        [(ngModel)]="user.lastName"
+        required
+      />
+    </div>
+
+    <div>
+  <label>Gender:</label>
+
+  <div style="width: 60%; display: flex; gap: 15px;">
+    <label>
+      <input
+        type="radio"
+        name="gender"
+        value="Male"
+        [(ngModel)]="user.gender"
+        required
+      />
+      Male
+    </label>
+
+    <label>
+      <input
+        type="radio"
+        name="gender"
+        value="Female"
+        [(ngModel)]="user.gender"
+        required
+      />
+      Female
+    </label>
+  </div>
+</div>
+
+
+    <div>
+      <label for="mobileNo">Mobile No:</label>
+      <input
+        id="mobileNo"
+        name="mobileNo"
+        [(ngModel)]="user.mobileNo"
+        required
+      />
+    </div>
+
+    <div>
+      <label for="dob">Date of Birth:</label>
+      <input
+        id="dob"
+        type="date"
+        name="dob"
+        [(ngModel)]="user.dob"
+        required
+      />
+    </div>
+
+    <div>
+      <label for="email">Email:</label>
+      <input
+        id="email"
+        type="email"
+        name="email"
+        [(ngModel)]="user.email"
+        required
+      />
+    </div>
+
+    <button type="submit" [disabled]="regForm.invalid">Submit</button>
+  </form>
+</div>

@@ -11,7 +11,7 @@ using RegFormApi.Data;
 namespace RegFormApi.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20251204060415_InitialCreate")]
+    [Migration("20251205043722_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -34,6 +34,10 @@ namespace RegFormApi.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Gender")
                         .IsRequired()
                         .HasColumnType("TEXT");
 

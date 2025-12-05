@@ -1,0 +1,101 @@
+<div class="users-list">
+  <button routerLink="/" style="margin-bottom: 15px;">
+    Home
+  </button>
+
+  <h2>Registered Users</h2>
+
+  <ng-container *ngIf="users$ | async as users">
+    <button routerLink="/register">Add New User</button>
+
+    <table *ngIf="users.length > 0; else noUsers">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Gender</th>   
+          <th>Mobile</th>
+          <th>DOB</th>
+          <th>Email</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let u of users">
+          <td>{{ u.id }}</td>
+
+          <!-- First Name -->
+          <td *ngIf="!editUser || editUser.id !== u.id">
+            {{ u.firstName }}
+          </td>
+          <td *ngIf="editUser && editUser.id === u.id">
+            <input [(ngModel)]="editUser.firstName" />
+          </td>
+
+          <!-- Last Name -->
+          <td *ngIf="!editUser || editUser.id !== u.id">
+            {{ u.lastName }}
+          </td>
+          <td *ngIf="editUser && editUser.id === u.id">
+            <input [(ngModel)]="editUser.lastName" />
+          </td>
+
+          <!-- Gender -->
+          <td *ngIf="!editUser || editUser.id !== u.id">
+            {{ u.gender }}
+          </td>
+          <td *ngIf="editUser && editUser.id === u.id">
+            <select [(ngModel)]="editUser.gender">
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
+          </td>
+
+          <!-- Mobile -->
+          <td *ngIf="!editUser || editUser.id !== u.id">
+            {{ u.mobileNo }}
+          </td>
+          <td *ngIf="editUser && editUser.id === u.id">
+            <input [(ngModel)]="editUser.mobileNo" />
+          </td>
+
+          <!-- DOB -->
+          <td *ngIf="!editUser || editUser.id !== u.id">
+            {{ u.dob | date: 'yyyy-MM-dd' }}
+          </td>
+          <td *ngIf="editUser && editUser.id === u.id">
+            <input type="date" [(ngModel)]="editUser.dob" />
+          </td>
+
+          <!-- Email -->
+          <td *ngIf="!editUser || editUser.id !== u.id">
+            {{ u.email }}
+          </td>
+          <td *ngIf="editUser && editUser.id === u.id">
+            <input [(ngModel)]="editUser.email" />
+          </td>
+
+          <!-- Actions -->
+          <td>
+            <button *ngIf="!editUser || editUser.id !== u.id" (click)="startEdit(u)">
+              Edit
+            </button>
+            <button *ngIf="editUser && editUser.id === u.id" (click)="saveEdit()">
+              Save
+            </button>
+            <button *ngIf="editUser && editUser.id === u.id" (click)="cancelEdit()">
+              Cancel
+            </button>
+            <button (click)="delete(u.id!)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </ng-container>
+
+  <ng-template #noUsers>
+    <p>No users found. Click "Add New User" to create one.</p>
+  </ng-template>
+</div>
