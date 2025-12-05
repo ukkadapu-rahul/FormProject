@@ -1,5 +1,7 @@
 ## Demo Video
-[![Demo Video](thumbnail.png)](media/demo.mp4)
+### click on the picture to play
+[![Demo Video](media/thumbnail.png)](https://youtu.be/YoGwq8fwa_I)
+
 
 
 
