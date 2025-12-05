@@ -46,11 +46,13 @@ td {
   text-align: center;
 }
 
-input {
+input,
+select {
   width: 100%;
   padding: 6px;
   border-radius: 4px;
   border: 1px solid #999;
+  box-sizing: border-box;  /* <-- THIS fixes the overflow */
 }
 
 button {
