@@ -1,5 +1,5 @@
 ## Demo Video
-[![Demo Video](thumbnail.png)]()
+[![Demo Video](thumbnail.png)](media/demo.mp4)
 
 
 
